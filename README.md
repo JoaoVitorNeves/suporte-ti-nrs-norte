@@ -55,11 +55,13 @@ Desenvolver uma solução para centralizar o registro, a organização e o acomp
 
 ## Tecnologias previstas
 
-- Java
+- Java 21
 - Spring Boot
 - Spring Security
-- PostgreSQL
-- HTML, CSS e JavaScript
+- Spring Data JPA
+- Thymeleaf
+- Banco de dados H2
+- Maven
 
 ## Público-alvo
 
