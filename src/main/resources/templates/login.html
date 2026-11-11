@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Entrar | Suporte de TI</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body class="login-page"><main class="login-shell">
+<section class="brand-panel"><div class="brand-mark">✚</div><p class="eyebrow">NÚCLEO REGIONAL DE SAÚDE NORTE</p><h1>Suporte de TI<br> NRS Norte</h1><p>Um canal organizado para solicitar e acompanhar suporte tecnológico.</p><ul><li>Atendimento organizado</li><li>Acompanhamento de solicitações</li><li>Mais eficiência no suporte</li></ul></section>
+<section class="form-panel"><form th:action="@{/login}" method="post" class="card"><p class="eyebrow">ACESSO INSTITUCIONAL</p><h2>Acesse sua conta</h2><div th:if="${param.error}" class="alert error" role="alert">Usuário ou senha inválidos. Verifique os dados e tente novamente.</div><div th:if="${param.logout}" class="alert" role="status">Você saiu do sistema.</div><label for="username">Usuário</label><input id="username" name="username" autocomplete="username" required autofocus><label for="password">Senha</label><input id="password" name="password" type="password" autocomplete="current-password" required><button type="submit">Entrar</button><p class="hint">Utilize suas credenciais de acesso ao ambiente de demonstração.</p><p class="demo">Demonstração: colaborador.teste / Teste@123</p></form></section>
+</main><footer>NRS Norte · Tecnologia a serviço da nossa missão</footer></body></html>

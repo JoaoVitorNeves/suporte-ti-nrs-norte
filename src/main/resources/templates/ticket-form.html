@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Abrir chamado | NRS Norte</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="topbar">
+    <a class="brand" th:href="@{/tickets}">
+        ✚ <span>Suporte de TI <small>NRS Norte</small></span>
+    </a>
+    <a class="link-button" th:href="@{/tickets}">Meus chamados</a>
+</header>
+
+<main class="container narrow">
+    <p class="eyebrow">NOVA SOLICITAÇÃO</p>
+    <h1>Abrir chamado</h1>
+    <p class="muted">Descreva o problema para que a equipe de TI possa avaliar.</p>
+
+    <form class="card form-card"
+          th:action="@{/tickets}"
+          th:object="${ticket}"
+          method="post">
+
+        <div class="field">
+            <label for="category">Categoria <span aria-hidden="true">*</span></label>
+            <select id="category" th:field="*{category}" required>
+                <option value="">Selecione uma categoria</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Software">Software</option>
+                <option value="Rede">Rede</option>
+                <option value="Impressora">Impressora</option>
+            </select>
+            <small class="field-error" th:errors="*{category}"></small>
+        </div>
+
+        <div class="field">
+            <label for="priority">Prioridade <span aria-hidden="true">*</span></label>
+            <select id="priority" th:field="*{priority}" required>
+                <option value="">Selecione a prioridade</option>
+                <option value="Baixa">Baixa</option>
+                <option value="Média">Média</option>
+                <option value="Alta">Alta</option>
+            </select>
+            <small class="field-error" th:errors="*{priority}"></small>
+        </div>
+
+        <div class="field">
+            <label for="description">Descrição do problema <span aria-hidden="true">*</span></label>
+            <textarea id="description"
+                      th:field="*{description}"
+                      rows="5"
+                      minlength="10"
+                      maxlength="1500"
+                      required
+                      placeholder="Informe o que aconteceu, quando começou e qual atividade foi afetada."></textarea>
+            <small>Descreva com pelo menos 10 caracteres.</small>
+            <small class="field-error" th:errors="*{description}"></small>
+        </div>
+
+        <div class="actions">
+            <a class="button secondary" th:href="@{/tickets}">Cancelar</a>
+            <button type="submit">Enviar chamado</button>
+        </div>
+    </form>
+</main>
+</body>
+</html>
